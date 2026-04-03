@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -8,7 +8,15 @@ const dmSans = DM_Sans({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://verceltics.site"),
   title: "Verceltics — Vercel Analytics on Your iPhone",
   description:
     "Track your Vercel web analytics on the go. Visitors, page views, bounce rate, referrers, countries, devices — all from your iPhone.",
@@ -28,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} antialiased`}>
-      <body className="bg-black text-white font-[family-name:var(--font-dm-sans)] min-h-screen">
+    <html lang="en" className={`${dmSans.variable} ${instrumentSerif.variable} antialiased`}>
+      <body className="min-h-screen bg-black font-[family-name:var(--font-dm-sans)] text-white">
         {children}
       </body>
     </html>
