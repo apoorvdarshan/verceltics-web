@@ -13,7 +13,7 @@ const heroShots = [
   {
     src: "/analytics.png",
     alt: "Verceltics analytics dashboard",
-    className: "relative z-30 w-[48%] mx-auto",
+    className: "relative z-30 mx-auto w-[48%]",
     delay: "0.3s",
   },
   {
@@ -24,54 +24,45 @@ const heroShots = [
   },
 ] as const;
 
-const stats = [
-  { value: "1000+", label: "developers" },
-  { value: "50K+", label: "analytics checked" },
-  { value: "4.9", label: "App Store rating" },
+const tickerItems = [
+  "SwiftUI",
+  "Swift Charts",
+  "Private by design",
+  "Open source",
+  "iOS Keychain",
+  "No tracking",
+  "No servers",
+  "Offline-ready",
 ] as const;
 
 const features = [
   {
     eyebrow: "Overview",
-    title: "Read the signal before the next tab even loads.",
-    description:
-      "The core dashboard turns Vercel's raw web analytics into a calm, tactile briefing made for fast decisions when you are nowhere near your desk.",
+    title: "See the signal fast.",
+    description: "Visitors, views, bounce rate, and deltas in one clean pass.",
     points: [
-      "Visitors, page views, bounce rate, and deltas in one native view",
-      "Charts that stay clear at a glance instead of collapsing into noise",
-      "A polished mobile layout that feels built, not merely ported",
+      "Daily totals at a glance",
+      "Swift Charts built for quick reads",
+      "A native layout that stays clear on the move",
     ],
     image: "/analytics.png",
     alt: "Analytics dashboard screenshot",
-    badge: "Daily command center",
   },
   {
     eyebrow: "Acquisition",
-    title: "Know exactly where the traffic moved and why.",
-    description:
-      "Breakdowns, referrers, and campaign slices make it obvious which sources are driving attention so you can react with context instead of guesswork.",
-    points: [
-      "Referrers, countries, and UTMs surfaced in a swipeable flow",
-      "Traffic mix presented with enough density for serious monitoring",
-      "Perfect for launch days, release weeks, and campaign spikes",
-    ],
+    title: "Spot what moved traffic.",
+    description: "Referrers, countries, and campaigns without the tab maze.",
+    points: ["UTMs and referrers in one flow", "Find spikes before they fade", "Great for launches and release days"],
     image: "/referrers.png",
     alt: "Referrers screenshot",
-    badge: "Acquisition clarity",
   },
   {
     eyebrow: "Portfolio",
-    title: "Carry every project and every audience pattern with you.",
-    description:
-      "From project switching to device-level audience reads, Verceltics keeps the entire portfolio within reach so you can audit performance in motion.",
-    points: [
-      "Jump across projects without losing your place or context",
-      "Inspect devices and browsers when behavior starts to shift",
-      "Built for founders, indie teams, and operators managing multiple apps",
-    ],
+    title: "Switch projects in seconds.",
+    description: "Keep every site close. Check devices, browsers, and trends anywhere.",
+    points: ["Fast project switching", "Device and browser breakdowns", "Built for solo builders and lean teams"],
     image: "/projects.png",
     alt: "Projects screenshot",
-    badge: "Multi-project monitoring",
   },
 ] as const;
 
@@ -79,20 +70,17 @@ const steps = [
   {
     number: "01",
     title: "Create Token",
-    description:
-      "Generate a read-only Web Analytics token inside Vercel so the app can securely query your account.",
+    description: "Generate a read-only Vercel Web Analytics token.",
   },
   {
     number: "02",
-    title: "Paste in App",
-    description:
-      "Drop the token into Verceltics once. It stays stored in the iOS Keychain, ready for every future session.",
+    title: "Add to App",
+    description: "Paste it once. Verceltics stores it in iOS Keychain.",
   },
   {
     number: "03",
-    title: "View Analytics",
-    description:
-      "Open the app any time to scan visitors, referrers, devices, and project trends with zero setup friction.",
+    title: "Check Anytime",
+    description: "Open the app for traffic, referrers, devices, and trends.",
   },
 ] as const;
 
@@ -104,6 +92,8 @@ const pricingFeatures = [
 ] as const;
 
 export default function Home() {
+  const marqueeItems = [...tickerItems, ...tickerItems];
+
   return (
     <div className="relative overflow-x-clip bg-[#04070d] text-white">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -117,25 +107,25 @@ export default function Home() {
             <Image src="/icon.png" alt="Verceltics" width={36} height={36} className="rounded-xl" />
             <div>
               <span className="block text-sm font-semibold tracking-[0.18em] text-white">VERCELTICS</span>
-              <span className="hidden text-xs text-white/[0.45] sm:block">Analytics for operators on the move</span>
+              <span className="hidden text-xs text-white/[0.45] sm:block">Vercel analytics for iPhone</span>
             </div>
           </Link>
 
           <div className="hidden items-center gap-7 md:flex">
-            <a href="#features" className="text-sm text-white/60 transition-colors hover:text-white">
+            <a href="#features" className="nav-link text-sm text-white/60 transition-colors hover:text-white">
               Features
             </a>
-            <a href="#how-it-works" className="text-sm text-white/60 transition-colors hover:text-white">
+            <a href="#how-it-works" className="nav-link text-sm text-white/60 transition-colors hover:text-white">
               How it works
             </a>
-            <a href="#pricing" className="text-sm text-white/60 transition-colors hover:text-white">
+            <a href="#pricing" className="nav-link text-sm text-white/60 transition-colors hover:text-white">
               Pricing
             </a>
             <a
               href="https://github.com/apoorvdarshan/verceltics"
               target="_blank"
               rel="noreferrer"
-              className="text-sm text-white/60 transition-colors hover:text-white"
+              className="nav-link text-sm text-white/60 transition-colors hover:text-white"
             >
               GitHub
             </a>
@@ -143,7 +133,7 @@ export default function Home() {
 
           <a
             href="#pricing"
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white px-3 py-2 text-xs font-semibold text-black transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_50px_rgba(255,255,255,0.14)] sm:px-5 sm:py-2.5 sm:text-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-gray-100 sm:px-5 sm:py-2.5 sm:text-sm"
           >
             <AppleIcon />
             App Store
@@ -153,14 +143,14 @@ export default function Home() {
 
       <main className="relative">
         <section className="relative">
-          <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 pb-18 pt-32 md:px-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:pt-40">
+          <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 pb-20 pt-32 md:px-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:pt-40">
             <div className="max-w-2xl text-center lg:text-left">
               <div
                 className="animate-fade-up inline-flex items-center gap-3 rounded-full border border-white/[0.12] bg-white/[0.04] px-4 py-2 text-[12px] uppercase tracking-[0.28em] text-white/60"
                 style={{ animationDelay: "0.1s" }}
               >
-                <span className="h-2 w-2 rounded-full bg-sky-400 shadow-[0_0_20px_rgba(56,189,248,0.8)]" />
-                Open source native analytics
+                <span className="h-2 w-2 rounded-full bg-sky-400" />
+                Open source iOS analytics
               </div>
 
               <h1
@@ -169,17 +159,15 @@ export default function Home() {
               >
                 Vercel analytics,
                 <span className="mt-2 block bg-gradient-to-r from-[#f6fbff] via-[#9fcfff] to-[#4c8dff] bg-clip-text text-transparent">
-                  composed for your pocket.
+                  built for iPhone.
                 </span>
               </h1>
 
               <p
-                className="animate-fade-up mt-8 max-w-xl text-base leading-8 text-white/[0.68] sm:text-lg"
+                className="animate-fade-up mt-8 max-w-xl text-base leading-7 text-white/[0.68] sm:text-lg"
                 style={{ animationDelay: "0.35s" }}
               >
-                A premium iPhone companion for Vercel Web Analytics. Track visitors, page views, bounce rate,
-                referrers, countries, and devices in a native interface that feels closer to a product launch than a
-                dashboard export.
+                Check visitors, referrers, devices, and trends in a fast native app. Private by design. Open source.
               </p>
 
               <div
@@ -188,18 +176,19 @@ export default function Home() {
               >
                 <a
                   href="#pricing"
-                  className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-base font-semibold text-black transition-all hover:-translate-y-0.5 hover:shadow-[0_20px_60px_rgba(255,255,255,0.16)]"
+                  className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-base font-semibold text-black transition-colors hover:bg-gray-100"
                 >
                   <AppleIcon />
                   Download on App Store
                 </a>
                 <a
-                  href="https://github.com/apoorvdarshan/verceltics"
+                  href="https://www.producthunt.com/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-3 rounded-full border border-white/[0.12] bg-white/[0.03] px-7 py-4 text-base font-semibold text-white transition-colors hover:border-white/20 hover:bg-white/[0.06]"
+                  className="inline-flex items-center gap-3 rounded-full bg-[#FF6154] px-7 py-4 text-base font-semibold text-white transition-colors hover:bg-[#e5554a]"
                 >
-                  View on GitHub
+                  <ProductHuntIcon />
+                  Product Hunt
                 </a>
               </div>
 
@@ -207,9 +196,9 @@ export default function Home() {
                 className="animate-fade-up mt-8 flex flex-wrap items-center justify-center gap-3 text-sm text-white/[0.45] lg:justify-start"
                 style={{ animationDelay: "0.65s" }}
               >
-                <span className="rounded-full border border-white/10 px-3 py-1.5">SwiftUI and Swift Charts</span>
+                <span className="rounded-full border border-white/10 px-3 py-1.5">SwiftUI</span>
                 <span className="rounded-full border border-white/10 px-3 py-1.5">Private by design</span>
-                <span className="rounded-full border border-white/10 px-3 py-1.5">Built for fast reads</span>
+                <span className="rounded-full border border-white/10 px-3 py-1.5">No tracking</span>
               </div>
             </div>
 
@@ -217,8 +206,8 @@ export default function Home() {
               <div className="-mx-6 lg:hidden">
                 <div className="flex justify-center gap-3 px-6 pb-4 pt-2">
                   {heroShots.map((shot) => (
-                    <div key={shot.src} className="w-28 sm:w-36 flex-none">
-                      <div className="overflow-hidden rounded-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+                    <div key={shot.src} className="w-28 flex-none sm:w-36">
+                      <div className="overflow-hidden rounded-xl border border-white/10">
                         <Image
                           src={shot.src}
                           alt={shot.alt}
@@ -236,14 +225,14 @@ export default function Home() {
               <div className="relative mx-auto hidden w-full max-w-[480px] lg:block">
                 <div className="absolute inset-x-20 top-20 h-40 rounded-full bg-sky-500/[0.12] blur-3xl" />
 
-                <div className="relative flex items-center justify-center h-[420px] xl:h-[480px]">
+                <div className="relative flex h-[420px] items-center justify-center xl:h-[480px]">
                   {heroShots.map((shot) => (
                     <div
                       key={shot.src}
                       className={`animate-fade-up ${shot.className}`}
                       style={{ animationDelay: shot.delay }}
                     >
-                      <div className="overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+                      <div className="overflow-hidden rounded-2xl border border-white/10">
                         <Image
                           src={shot.src}
                           alt={shot.alt}
@@ -261,44 +250,45 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="relative mx-auto max-w-7xl px-6 py-10 md:px-10">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 shadow-[0_20px_60px_rgba(3,8,20,0.35)] backdrop-blur-xl md:p-10">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-2xl">
-                <p className="text-xs uppercase tracking-[0.32em] text-sky-200/70">Trusted by developers</p>
-                <h2 className="mt-4 max-w-xl font-serif text-3xl italic leading-tight tracking-[-0.04em] text-white sm:text-4xl">
-                  Built for the teams who refresh their metrics before they refresh their inbox.
-                </h2>
-              </div>
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="section-divider" />
+        </div>
 
-              <ScrollReveal className="w-full lg:max-w-[24rem] xl:max-w-[28rem] 2xl:max-w-[32rem]">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                  {stats.map((stat) => (
-                    <div key={stat.label} className="rounded-[1.5rem] border border-white/10 bg-black/30 px-5 py-6">
-                      <div className="text-3xl font-semibold tracking-[-0.05em] text-white">{stat.value}</div>
-                      <div className="mt-2 text-sm text-white/[0.55]">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </ScrollReveal>
+        <section className="overflow-hidden py-5">
+          <div className="mx-auto max-w-7xl px-6 md:px-10">
+            <div className="overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)] [-webkit-mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
+              <div className="animate-marquee flex w-max gap-3 whitespace-nowrap py-2">
+                {marqueeItems.map((item, index) => (
+                  <div
+                    key={`${item}-${index}`}
+                    className="flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-white/65"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-sky-300/80" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="features" className="scroll-mt-32 px-6 py-28 md:px-10">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="section-divider" />
+        </div>
+
+        <section id="features" className="scroll-mt-32 px-6 py-24 md:px-10">
           <div className="mx-auto max-w-7xl">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-xs uppercase tracking-[0.32em] text-sky-200/70">Feature set</p>
               <h2 className="mt-5 font-serif text-4xl italic leading-tight tracking-[-0.05em] text-white sm:text-5xl md:text-6xl">
-                Everything essential, staged like a premium product release.
+                The essentials. Nothing noisy.
               </h2>
-              <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
-                No generic card wall. Just three focused narratives showing how Verceltics turns raw Vercel analytics
-                into something beautiful enough to check constantly.
+              <p className="mt-6 text-base leading-7 text-white/60 sm:text-lg">
+                Everything you need to read Vercel Web Analytics from your phone.
               </p>
             </div>
 
-            <div className="mt-20 space-y-20">
+            <div className="mt-16 space-y-16 lg:mt-20 lg:space-y-20">
               {features.map((feature, index) => {
                 const screenshotOrder = index % 2 === 0 ? "lg:order-1" : "lg:order-2";
                 const copyOrder = index % 2 === 0 ? "lg:order-2" : "lg:order-1";
@@ -306,23 +296,15 @@ export default function Home() {
                 return (
                   <ScrollReveal key={feature.title} delay={index * 120}>
                     <article className="grid gap-10 lg:grid-cols-2 lg:items-center">
-                      <div className={`order-1 min-w-0 max-w-xs mx-auto lg:mx-0 ${screenshotOrder}`}>
-                        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.03))] p-2 shadow-[0_20px_60px_rgba(3,8,20,0.40)]">
-                          <div className="absolute inset-x-10 top-6 h-px bg-gradient-to-r from-transparent via-white/[0.55] to-transparent" />
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(91,154,255,0.18),transparent_38%)]" />
-                          <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/40 p-2">
-                            <div className="mb-4 flex items-center justify-between gap-3 px-3 pt-2 text-[11px] uppercase tracking-[0.28em] text-white/[0.45]">
-                              <span>Verceltics</span>
-                              <span className="text-right">{feature.badge}</span>
-                            </div>
-                            <Image
-                              src={feature.image}
-                              alt={feature.alt}
-                              width={400}
-                              height={720}
-                              className="h-auto w-full max-h-[60vh] object-cover object-top rounded-xl"
-                            />
-                          </div>
+                      <div className={`order-1 mx-auto max-w-xs min-w-0 lg:mx-0 ${screenshotOrder}`}>
+                        <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-3">
+                          <Image
+                            src={feature.image}
+                            alt={feature.alt}
+                            width={400}
+                            height={720}
+                            className="h-auto max-h-[60vh] w-full rounded-[1.5rem] object-cover object-top"
+                          />
                         </div>
                       </div>
 
@@ -331,13 +313,13 @@ export default function Home() {
                         <h3 className="mt-5 max-w-xl font-serif text-2xl italic leading-tight tracking-[-0.03em] text-white sm:text-3xl lg:text-4xl">
                           {feature.title}
                         </h3>
-                        <p className="mt-6 max-w-xl text-base leading-8 text-white/[0.65] sm:text-lg">
+                        <p className="mt-6 max-w-xl text-base leading-7 text-white/[0.65] sm:text-lg">
                           {feature.description}
                         </p>
-                        <ul className="mt-8 space-y-4 text-sm leading-7 text-white/[0.56] sm:text-base">
+                        <ul className="mt-7 space-y-3.5 text-sm leading-6 text-white/[0.56] sm:text-base">
                           {feature.points.map((point) => (
                             <li key={point} className="flex gap-3">
-                              <span className="mt-2 h-2.5 w-2.5 rounded-full bg-sky-400 shadow-[0_0_18px_rgba(56,189,248,0.65)]" />
+                              <span className="mt-2 h-2.5 w-2.5 rounded-full bg-sky-400" />
                               <span>{point}</span>
                             </li>
                           ))}
@@ -351,17 +333,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="how-it-works" className="scroll-mt-32 px-6 py-10 md:px-10">
-          <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-white/10 bg-white/[0.03] px-8 py-12 shadow-[0_28px_80px_rgba(3,8,20,0.36)] backdrop-blur-xl md:px-12 md:py-14">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="section-divider" />
+        </div>
+
+        <section id="how-it-works" className="scroll-mt-32 px-6 py-16 md:px-10">
+          <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-white/10 bg-white/[0.03] px-8 py-12 backdrop-blur-xl md:px-12 md:py-14">
             <div className="max-w-2xl">
               <p className="text-xs uppercase tracking-[0.32em] text-sky-200/70">How it works</p>
               <h2 className="mt-5 font-serif text-4xl italic leading-tight tracking-[-0.05em] text-white sm:text-5xl">
-                Three steps from token to complete visibility.
+                From token to dashboard.
               </h2>
-              <p className="mt-5 text-base leading-8 text-white/60 sm:text-lg">
-                The setup is intentionally light. One token, one paste, and the full analytics surface is ready on your
-                phone whenever you need it.
-              </p>
+              <p className="mt-5 text-base leading-7 text-white/60 sm:text-lg">One token. One paste. Done.</p>
             </div>
 
             <div className="relative mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -369,11 +352,11 @@ export default function Home() {
               {steps.map((step, index) => (
                 <ScrollReveal key={step.number} className="h-full" delay={index * 100}>
                   <div className="relative h-full rounded-[2rem] border border-white/10 bg-black/25 p-7 md:p-8">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full border border-sky-300/20 bg-sky-400/10 font-semibold tracking-[0.24em] text-sky-100 shadow-[0_0_28px_rgba(56,189,248,0.18)]">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full border border-sky-300/20 bg-sky-400/10 font-semibold tracking-[0.24em] text-sky-100">
                       {step.number}
                     </div>
                     <h3 className="mt-6 text-2xl font-semibold tracking-[-0.04em] text-white">{step.title}</h3>
-                    <p className="mt-4 text-sm leading-7 text-white/[0.58] sm:text-base">{step.description}</p>
+                    <p className="mt-4 text-sm leading-6 text-white/[0.58] sm:text-base">{step.description}</p>
                   </div>
                 </ScrollReveal>
               ))}
@@ -381,33 +364,37 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="pricing" className="scroll-mt-32 px-6 py-28 md:px-10">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="section-divider" />
+        </div>
+
+        <section id="pricing" className="scroll-mt-32 px-6 py-14 md:px-10">
           <div className="mx-auto max-w-7xl">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-xs uppercase tracking-[0.32em] text-sky-200/70">Pricing</p>
-              <h2 className="mt-5 font-serif text-4xl italic leading-tight tracking-[-0.05em] text-white sm:text-5xl md:text-6xl">
-                Simple pricing, cut with a little more drama.
+              <h2 className="mt-5 font-serif text-3xl italic leading-tight tracking-[-0.05em] text-white sm:text-4xl md:text-5xl">
+                Simple plans. Full access.
               </h2>
-              <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
-                Start with a 3-day free trial and pick the plan that fits how often you want the numbers in your hand.
+              <p className="mt-5 text-base leading-7 text-white/60 sm:text-lg">
+                Start with a 3-day free trial, then choose monthly or yearly.
               </p>
             </div>
 
-            <div className="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-2">
+            <div className="mx-auto mt-12 grid max-w-4xl gap-4 lg:grid-cols-2">
               <ScrollReveal className="h-full">
-                <div className="h-full rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-[0_24px_70px_rgba(3,8,20,0.32)] sm:p-8">
+                <div className="h-full rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-5 sm:p-6">
                   <div className="text-sm uppercase tracking-[0.28em] text-white/[0.45]">Monthly</div>
                   <div className="mt-5 flex items-end gap-1.5 sm:gap-2">
                     <span className="text-5xl font-semibold tracking-[-0.06em] text-white sm:text-6xl">$3.99</span>
                     <span className="pb-1.5 text-white/[0.45] sm:pb-2">/ month</span>
                   </div>
-                  <p className="mt-5 text-sm leading-7 text-white/[0.58]">
-                    A flexible way to try the app if you want full analytics access without committing to the annual plan.
+                  <p className="mt-4 text-sm leading-6 text-white/[0.58]">
+                    Flexible access for staying close to the numbers.
                   </p>
-                  <ul className="mt-8 space-y-3 text-sm text-white/60">
+                  <ul className="mt-6 space-y-3 text-sm text-white/60">
                     {pricingFeatures.map((item) => (
                       <li key={item} className="flex items-center gap-3">
-                        <span className="h-2 w-2 rounded-full bg-white/70" />
+                        <CheckIcon className="text-white/70" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -416,8 +403,8 @@ export default function Home() {
               </ScrollReveal>
 
               <ScrollReveal className="h-full" delay={120}>
-                <div className="animate-glow-pulse relative h-full rounded-[2rem] border border-sky-300/30 bg-[linear-gradient(160deg,rgba(86,157,255,0.20),rgba(9,13,24,0.98)_35%,rgba(4,7,13,0.98)_100%)] p-6 shadow-[0_0_60px_rgba(56,189,248,0.22)] sm:p-8 lg:-translate-y-4">
-                  <div className="absolute right-6 top-6 rounded-full border border-sky-200/20 bg-sky-300/[0.12] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-100">
+                <div className="relative h-full rounded-[1.75rem] border border-sky-300/30 bg-[linear-gradient(160deg,rgba(86,157,255,0.16),rgba(9,13,24,0.98)_35%,rgba(4,7,13,0.98)_100%)] p-5 sm:p-6">
+                  <div className="absolute right-5 top-5 rounded-full border border-sky-200/20 bg-sky-300/[0.12] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-100">
                     Best value
                   </div>
                   <div className="pr-24 text-sm uppercase tracking-[0.28em] text-sky-100/70">Yearly</div>
@@ -428,14 +415,13 @@ export default function Home() {
                   <p className="mt-3 inline-flex rounded-full border border-emerald-400/[0.18] bg-emerald-400/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
                     Save 37%
                   </p>
-                  <p className="mt-5 text-sm leading-7 text-white/[0.66]">
-                    The strongest option if Vercel metrics are part of your weekly operating rhythm and you want the app
-                    ready every time you reach for your phone.
+                  <p className="mt-4 text-sm leading-6 text-white/[0.66]">
+                    The best choice if Vercel metrics are part of your weekly routine.
                   </p>
-                  <ul className="mt-8 space-y-3 text-sm text-white/70">
+                  <ul className="mt-6 space-y-3 text-sm text-white/70">
                     {pricingFeatures.map((item) => (
                       <li key={item} className="flex items-center gap-3">
-                        <span className="h-2 w-2 rounded-full bg-sky-300" />
+                        <CheckIcon className="text-sky-300" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -446,26 +432,29 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-6 pb-24 md:px-10">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="section-divider" />
+        </div>
+
+        <section className="px-6 pb-24 pt-2 md:px-10">
           <div className="mx-auto max-w-7xl">
             <ScrollReveal>
-              <div className="relative overflow-hidden rounded-[2.75rem] border border-white/10 bg-[#04070d] px-6 py-8 shadow-[0_30px_90px_rgba(3,8,20,0.42)] sm:px-8 sm:py-10 md:px-12 md:py-14">
+              <div className="relative overflow-hidden rounded-[2.75rem] border border-white/10 bg-[#04070d] px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(56,189,248,0.18),transparent_25%),radial-gradient(circle_at_85%_30%,rgba(76,141,255,0.18),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.01))]" />
                 <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
                   <div className="max-w-2xl">
                     <p className="text-xs uppercase tracking-[0.32em] text-sky-200/70">Start now</p>
                     <h2 className="mt-5 font-serif text-4xl italic leading-tight tracking-[-0.05em] text-white sm:text-5xl">
-                      Start tracking your analytics today.
+                      Keep Vercel close.
                     </h2>
-                    <p className="mt-5 text-base leading-8 text-white/60 sm:text-lg">
-                      Monitor launches, daily traffic shifts, and portfolio health from the same device already in your
-                      pocket.
+                    <p className="mt-5 text-base leading-7 text-white/60 sm:text-lg">
+                      Open the app and check the numbers in seconds.
                     </p>
                   </div>
 
                   <a
                     href="#pricing"
-                    className="inline-flex items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-base font-semibold text-black transition-all hover:-translate-y-0.5 hover:shadow-[0_20px_60px_rgba(255,255,255,0.16)]"
+                    className="inline-flex items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-base font-semibold text-black transition-colors hover:bg-gray-100"
                   >
                     <AppleIcon />
                     Download on App Store
@@ -484,15 +473,12 @@ export default function Home() {
               <Image src="/icon.png" alt="Verceltics" width={36} height={36} className="rounded-xl" />
               <div>
                 <div className="text-sm font-semibold tracking-[0.18em] text-white">VERCELTICS</div>
-                <div className="text-sm text-white/[0.45]">Vercel analytics on your iPhone.</div>
+                <div className="text-sm text-white/[0.45]">Vercel analytics for iPhone.</div>
               </div>
             </div>
-            <p className="mt-5 text-sm leading-7 text-white/[0.48]">
-              An independent companion app for Vercel Web Analytics, designed for quick reads, calm monitoring, and a
-              more premium daily ritual.
-            </p>
+            <p className="mt-5 text-sm leading-7 text-white/[0.48]">An open source companion app for Vercel Web Analytics</p>
             <p className="mt-4 text-xs uppercase tracking-[0.24em] text-white/[0.35]">
-              Not affiliated with Vercel Inc. Copyright 2026 Verceltics.
+              Not affiliated with Vercel Inc. © 2026 Apoorv Darshan
             </p>
           </div>
 
@@ -557,8 +543,37 @@ export default function Home() {
 
 function AppleIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+    </svg>
+  );
+}
+
+function ProductHuntIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
+      <path
+        d="M10 8.5h3.2a2.8 2.8 0 1 1 0 5.6H10m0-5.6V16"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
+function CheckIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
+      <path
+        d="m5 12.5 4.2 4.2L19 7"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
     </svg>
   );
 }
