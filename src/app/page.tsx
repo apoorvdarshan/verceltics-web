@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { ScrollReveal } from "@/components/scroll-reveal";
+
 const heroShots = [
   {
     src: "/projects.png",
@@ -142,12 +144,12 @@ export default function Home() {
       </div>
 
       <nav className="fixed top-0 z-50 w-full border-b border-white/[0.08] bg-[#04070d]/[0.72] backdrop-blur-2xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 md:px-10">
           <Link href="/" className="flex items-center gap-3">
             <Image src="/icon.png" alt="Verceltics" width={36} height={36} className="rounded-xl" />
             <div>
               <span className="block text-sm font-semibold tracking-[0.18em] text-white">VERCELTICS</span>
-              <span className="block text-xs text-white/[0.45]">Analytics for operators on the move</span>
+              <span className="hidden text-xs text-white/[0.45] sm:block">Analytics for operators on the move</span>
             </div>
           </Link>
 
@@ -173,7 +175,7 @@ export default function Home() {
 
           <a
             href="#pricing"
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white px-5 py-2.5 text-sm font-semibold text-black transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_50px_rgba(255,255,255,0.14)]"
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white px-3 py-2 text-xs font-semibold text-black transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_50px_rgba(255,255,255,0.14)] sm:px-5 sm:py-2.5 sm:text-sm"
           >
             <AppleIcon />
             App Store
@@ -243,32 +245,54 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="animate-fade-up relative mx-auto w-full max-w-[680px] [perspective:2400px]" style={{ animationDelay: "0.45s" }}>
-              <div className="absolute inset-x-20 top-24 h-56 rounded-full bg-sky-500/[0.15] blur-3xl" />
-              <div className="absolute inset-x-10 bottom-10 h-48 rounded-full bg-blue-950/80 blur-3xl" />
-
-              <div className="relative h-[560px] [transform-style:preserve-3d] sm:h-[640px]">
-                {heroShots.map((shot) => (
-                  <div
-                    key={shot.src}
-                    className={`animate-float absolute ${shot.wrapperClass}`}
-                    style={{ animationDelay: shot.delay, animationDuration: shot.duration }}
-                  >
-                    <div
-                      className={`relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 shadow-[0_35px_80px_rgba(4,10,24,0.45)] backdrop-blur-xl ${shot.cardClass}`}
-                    >
-                      <div className="absolute inset-x-8 top-4 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-                      <Image
-                        src={shot.src}
-                        alt={shot.alt}
-                        width={shot.width}
-                        height={shot.height}
-                        className="h-auto w-full rounded-[1.6rem]"
-                        priority={shot.src === "/analytics.png"}
-                      />
+            <div className="animate-fade-up w-full" style={{ animationDelay: "0.45s" }}>
+              <div className="-mx-6 lg:hidden">
+                <div className="scrollbar-hidden flex gap-4 overflow-x-auto px-6 pb-4 pt-2">
+                  {heroShots.map((shot) => (
+                    <div key={shot.src} className="w-[220px] flex-none sm:w-[250px]">
+                      <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 shadow-[0_30px_70px_rgba(4,10,24,0.35)] backdrop-blur-xl">
+                        <div className="absolute inset-x-8 top-4 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+                        <Image
+                          src={shot.src}
+                          alt={shot.alt}
+                          width={shot.width}
+                          height={shot.height}
+                          className="h-auto w-full rounded-[1.6rem]"
+                          priority={shot.src === "/analytics.png"}
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative mx-auto hidden w-full max-w-[680px] lg:block [perspective:2400px]">
+                <div className="absolute inset-x-20 top-24 h-56 rounded-full bg-sky-500/[0.15] blur-3xl" />
+                <div className="absolute inset-x-10 bottom-10 h-48 rounded-full bg-blue-950/80 blur-3xl" />
+
+                <div className="relative h-[640px] [transform-style:preserve-3d]">
+                  {heroShots.map((shot) => (
+                    <div
+                      key={shot.src}
+                      className={`animate-float absolute ${shot.wrapperClass}`}
+                      style={{ animationDelay: shot.delay, animationDuration: shot.duration }}
+                    >
+                      <div
+                        className={`relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 shadow-[0_35px_80px_rgba(4,10,24,0.45)] backdrop-blur-xl ${shot.cardClass}`}
+                      >
+                        <div className="absolute inset-x-8 top-4 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+                        <Image
+                          src={shot.src}
+                          alt={shot.alt}
+                          width={shot.width}
+                          height={shot.height}
+                          className="h-auto w-full rounded-[1.6rem]"
+                          priority={shot.src === "/analytics.png"}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -284,17 +308,16 @@ export default function Home() {
                 </h2>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-3">
-                {stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="min-w-[180px] rounded-[1.5rem] border border-white/10 bg-black/30 px-5 py-6"
-                  >
-                    <div className="text-3xl font-semibold tracking-[-0.05em] text-white">{stat.value}</div>
-                    <div className="mt-2 text-sm text-white/[0.55]">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
+              <ScrollReveal className="w-full lg:max-w-[32rem]">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                  {stats.map((stat) => (
+                    <div key={stat.label} className="rounded-[1.5rem] border border-white/10 bg-black/30 px-5 py-6">
+                      <div className="text-3xl font-semibold tracking-[-0.05em] text-white">{stat.value}</div>
+                      <div className="mt-2 text-sm text-white/[0.55]">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -318,48 +341,47 @@ export default function Home() {
                 const copyOrder = index % 2 === 0 ? "lg:order-2" : "lg:order-1";
 
                 return (
-                  <article
-                    key={feature.title}
-                    className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center"
-                  >
-                    <div className={`order-2 ${screenshotOrder}`}>
-                      <div className="relative overflow-hidden rounded-[2.25rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.03))] p-4 shadow-[0_30px_80px_rgba(3,8,20,0.40)]">
-                        <div className="absolute inset-x-10 top-6 h-px bg-gradient-to-r from-transparent via-white/[0.55] to-transparent" />
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(91,154,255,0.18),transparent_38%)]" />
-                        <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/40 p-2">
-                          <div className="mb-4 flex items-center justify-between px-3 pt-2 text-[11px] uppercase tracking-[0.28em] text-white/[0.45]">
-                            <span>Verceltics</span>
-                            <span>{feature.badge}</span>
+                  <ScrollReveal key={feature.title} delay={index * 120}>
+                    <article className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
+                      <div className={`order-1 min-w-0 ${screenshotOrder}`}>
+                        <div className="relative overflow-hidden rounded-[2.25rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.03))] p-3 shadow-[0_30px_80px_rgba(3,8,20,0.40)] sm:p-4">
+                          <div className="absolute inset-x-10 top-6 h-px bg-gradient-to-r from-transparent via-white/[0.55] to-transparent" />
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(91,154,255,0.18),transparent_38%)]" />
+                          <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/40 p-2">
+                            <div className="mb-4 flex items-center justify-between gap-3 px-3 pt-2 text-[11px] uppercase tracking-[0.28em] text-white/[0.45]">
+                              <span>Verceltics</span>
+                              <span className="text-right">{feature.badge}</span>
+                            </div>
+                            <Image
+                              src={feature.image}
+                              alt={feature.alt}
+                              width={960}
+                              height={720}
+                              className="h-auto w-full rounded-[1.45rem]"
+                            />
                           </div>
-                          <Image
-                            src={feature.image}
-                            alt={feature.alt}
-                            width={960}
-                            height={720}
-                            className="h-auto w-full rounded-[1.45rem]"
-                          />
                         </div>
                       </div>
-                    </div>
 
-                    <div className={`order-1 ${copyOrder}`}>
-                      <p className="text-xs uppercase tracking-[0.32em] text-sky-200/70">{feature.eyebrow}</p>
-                      <h3 className="mt-5 max-w-xl font-serif text-4xl italic leading-tight tracking-[-0.05em] text-white sm:text-5xl">
-                        {feature.title}
-                      </h3>
-                      <p className="mt-6 max-w-xl text-base leading-8 text-white/[0.65] sm:text-lg">
-                        {feature.description}
-                      </p>
-                      <ul className="mt-8 space-y-4 text-sm leading-7 text-white/[0.56] sm:text-base">
-                        {feature.points.map((point) => (
-                          <li key={point} className="flex gap-3">
-                            <span className="mt-2 h-2.5 w-2.5 rounded-full bg-sky-400 shadow-[0_0_18px_rgba(56,189,248,0.65)]" />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </article>
+                      <div className={`order-2 min-w-0 ${copyOrder}`}>
+                        <p className="text-xs uppercase tracking-[0.32em] text-sky-200/70">{feature.eyebrow}</p>
+                        <h3 className="mt-5 max-w-xl font-serif text-4xl italic leading-tight tracking-[-0.05em] text-white sm:text-5xl">
+                          {feature.title}
+                        </h3>
+                        <p className="mt-6 max-w-xl text-base leading-8 text-white/[0.65] sm:text-lg">
+                          {feature.description}
+                        </p>
+                        <ul className="mt-8 space-y-4 text-sm leading-7 text-white/[0.56] sm:text-base">
+                          {feature.points.map((point) => (
+                            <li key={point} className="flex gap-3">
+                              <span className="mt-2 h-2.5 w-2.5 rounded-full bg-sky-400 shadow-[0_0_18px_rgba(56,189,248,0.65)]" />
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </article>
+                  </ScrollReveal>
                 );
               })}
             </div>
@@ -379,19 +401,18 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative mt-12 grid gap-6 md:grid-cols-3">
+            <div className="relative mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
               <div className="absolute left-[16.66%] right-[16.66%] top-9 hidden h-px bg-gradient-to-r from-white/0 via-white/[0.14] to-white/0 md:block" />
-              {steps.map((step) => (
-                <div
-                  key={step.number}
-                  className="relative rounded-[2rem] border border-white/10 bg-black/25 p-7 md:p-8"
-                >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-sky-300/20 bg-sky-400/10 font-semibold tracking-[0.24em] text-sky-100 shadow-[0_0_28px_rgba(56,189,248,0.18)]">
-                    {step.number}
+              {steps.map((step, index) => (
+                <ScrollReveal key={step.number} className="h-full" delay={index * 100}>
+                  <div className="relative h-full rounded-[2rem] border border-white/10 bg-black/25 p-7 md:p-8">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full border border-sky-300/20 bg-sky-400/10 font-semibold tracking-[0.24em] text-sky-100 shadow-[0_0_28px_rgba(56,189,248,0.18)]">
+                      {step.number}
+                    </div>
+                    <h3 className="mt-6 text-2xl font-semibold tracking-[-0.04em] text-white">{step.title}</h3>
+                    <p className="mt-4 text-sm leading-7 text-white/[0.58] sm:text-base">{step.description}</p>
                   </div>
-                  <h3 className="mt-6 text-2xl font-semibold tracking-[-0.04em] text-white">{step.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-white/[0.58] sm:text-base">{step.description}</p>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -410,87 +431,93 @@ export default function Home() {
             </div>
 
             <div className="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-2">
-              <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 shadow-[0_24px_70px_rgba(3,8,20,0.32)]">
-                <div className="text-sm uppercase tracking-[0.28em] text-white/[0.45]">Monthly</div>
-                <div className="mt-5 flex items-end gap-2">
-                  <span className="text-6xl font-semibold tracking-[-0.06em] text-white">$3.99</span>
-                  <span className="pb-2 text-white/[0.45]">/ month</span>
+              <ScrollReveal className="h-full">
+                <div className="h-full rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-[0_24px_70px_rgba(3,8,20,0.32)] sm:p-8">
+                  <div className="text-sm uppercase tracking-[0.28em] text-white/[0.45]">Monthly</div>
+                  <div className="mt-5 flex items-end gap-1.5 sm:gap-2">
+                    <span className="text-5xl font-semibold tracking-[-0.06em] text-white sm:text-6xl">$3.99</span>
+                    <span className="pb-1.5 text-white/[0.45] sm:pb-2">/ month</span>
+                  </div>
+                  <p className="mt-5 text-sm leading-7 text-white/[0.58]">
+                    A flexible way to try the app if you want full analytics access without committing to the annual plan.
+                  </p>
+                  <ul className="mt-8 space-y-3 text-sm text-white/60">
+                    {pricingFeatures.map((item) => (
+                      <li key={item} className="flex items-center gap-3">
+                        <span className="h-2 w-2 rounded-full bg-white/70" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="mt-5 text-sm leading-7 text-white/[0.58]">
-                  A flexible way to try the app if you want full analytics access without committing to the annual plan.
-                </p>
-                <ul className="mt-8 space-y-3 text-sm text-white/60">
-                  {pricingFeatures.map((item) => (
-                    <li key={item} className="flex items-center gap-3">
-                      <span className="h-2 w-2 rounded-full bg-white/70" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </ScrollReveal>
 
-              <div className="animate-glow-pulse relative rounded-[2rem] border border-sky-300/30 bg-[linear-gradient(160deg,rgba(86,157,255,0.20),rgba(9,13,24,0.98)_35%,rgba(4,7,13,0.98)_100%)] p-8 shadow-[0_0_60px_rgba(56,189,248,0.22)] lg:-translate-y-4">
-                <div className="absolute right-6 top-6 rounded-full border border-sky-200/20 bg-sky-300/[0.12] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-100">
-                  Best value
+              <ScrollReveal className="h-full" delay={120}>
+                <div className="animate-glow-pulse relative h-full rounded-[2rem] border border-sky-300/30 bg-[linear-gradient(160deg,rgba(86,157,255,0.20),rgba(9,13,24,0.98)_35%,rgba(4,7,13,0.98)_100%)] p-6 shadow-[0_0_60px_rgba(56,189,248,0.22)] sm:p-8 lg:-translate-y-4">
+                  <div className="absolute right-6 top-6 rounded-full border border-sky-200/20 bg-sky-300/[0.12] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-100">
+                    Best value
+                  </div>
+                  <div className="pr-24 text-sm uppercase tracking-[0.28em] text-sky-100/70">Yearly</div>
+                  <div className="mt-5 flex items-end gap-1.5 sm:gap-2">
+                    <span className="text-5xl font-semibold tracking-[-0.06em] text-white sm:text-6xl">$29.99</span>
+                    <span className="pb-1.5 text-sky-100/70 sm:pb-2">/ year</span>
+                  </div>
+                  <p className="mt-3 inline-flex rounded-full border border-emerald-400/[0.18] bg-emerald-400/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+                    Save 37%
+                  </p>
+                  <p className="mt-5 text-sm leading-7 text-white/[0.66]">
+                    The strongest option if Vercel metrics are part of your weekly operating rhythm and you want the app
+                    ready every time you reach for your phone.
+                  </p>
+                  <ul className="mt-8 space-y-3 text-sm text-white/70">
+                    {pricingFeatures.map((item) => (
+                      <li key={item} className="flex items-center gap-3">
+                        <span className="h-2 w-2 rounded-full bg-sky-300" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="text-sm uppercase tracking-[0.28em] text-sky-100/70">Yearly</div>
-                <div className="mt-5 flex items-end gap-2">
-                  <span className="text-6xl font-semibold tracking-[-0.06em] text-white">$29.99</span>
-                  <span className="pb-2 text-sky-100/70">/ year</span>
-                </div>
-                <p className="mt-3 inline-flex rounded-full border border-emerald-400/[0.18] bg-emerald-400/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
-                  Save 37%
-                </p>
-                <p className="mt-5 text-sm leading-7 text-white/[0.66]">
-                  The strongest option if Vercel metrics are part of your weekly operating rhythm and you want the app
-                  ready every time you reach for your phone.
-                </p>
-                <ul className="mt-8 space-y-3 text-sm text-white/70">
-                  {pricingFeatures.map((item) => (
-                    <li key={item} className="flex items-center gap-3">
-                      <span className="h-2 w-2 rounded-full bg-sky-300" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
 
         <section className="px-6 pb-24 md:px-10">
           <div className="mx-auto max-w-7xl">
-            <div className="relative overflow-hidden rounded-[2.75rem] border border-white/10 bg-[#04070d] px-8 py-10 shadow-[0_30px_90px_rgba(3,8,20,0.42)] md:px-12 md:py-14">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(56,189,248,0.18),transparent_25%),radial-gradient(circle_at_85%_30%,rgba(76,141,255,0.18),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.01))]" />
-              <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-                <div className="max-w-2xl">
-                  <p className="text-xs uppercase tracking-[0.32em] text-sky-200/70">Start now</p>
-                  <h2 className="mt-5 font-serif text-4xl italic leading-tight tracking-[-0.05em] text-white sm:text-5xl">
-                    Start tracking your analytics today.
-                  </h2>
-                  <p className="mt-5 text-base leading-8 text-white/60 sm:text-lg">
-                    Monitor launches, daily traffic shifts, and portfolio health from the same device already in your
-                    pocket.
-                  </p>
-                </div>
+            <ScrollReveal>
+              <div className="relative overflow-hidden rounded-[2.75rem] border border-white/10 bg-[#04070d] px-6 py-8 shadow-[0_30px_90px_rgba(3,8,20,0.42)] sm:px-8 sm:py-10 md:px-12 md:py-14">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(56,189,248,0.18),transparent_25%),radial-gradient(circle_at_85%_30%,rgba(76,141,255,0.18),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.01))]" />
+                <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+                  <div className="max-w-2xl">
+                    <p className="text-xs uppercase tracking-[0.32em] text-sky-200/70">Start now</p>
+                    <h2 className="mt-5 font-serif text-4xl italic leading-tight tracking-[-0.05em] text-white sm:text-5xl">
+                      Start tracking your analytics today.
+                    </h2>
+                    <p className="mt-5 text-base leading-8 text-white/60 sm:text-lg">
+                      Monitor launches, daily traffic shifts, and portfolio health from the same device already in your
+                      pocket.
+                    </p>
+                  </div>
 
-                <a
-                  href="#pricing"
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-base font-semibold text-black transition-all hover:-translate-y-0.5 hover:shadow-[0_20px_60px_rgba(255,255,255,0.16)]"
-                >
-                  <AppleIcon />
-                  Download on App Store
-                </a>
+                  <a
+                    href="#pricing"
+                    className="inline-flex items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-base font-semibold text-black transition-all hover:-translate-y-0.5 hover:shadow-[0_20px_60px_rgba(255,255,255,0.16)]"
+                  >
+                    <AppleIcon />
+                    Download on App Store
+                  </a>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
       </main>
 
       <footer className="relative border-t border-white/[0.08] px-6 py-12 md:px-10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 text-center lg:flex-row lg:items-start lg:justify-between lg:text-left">
           <div className="max-w-md">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center gap-3 lg:justify-start">
               <Image src="/icon.png" alt="Verceltics" width={36} height={36} className="rounded-xl" />
               <div>
                 <div className="text-sm font-semibold tracking-[0.18em] text-white">VERCELTICS</div>
@@ -506,7 +533,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div className="grid gap-8 text-center sm:grid-cols-3 sm:text-left">
             <div>
               <div className="text-xs uppercase tracking-[0.28em] text-white/[0.35]">Explore</div>
               <div className="mt-4 flex flex-col gap-3 text-sm text-white/[0.58]">

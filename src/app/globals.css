@@ -8,12 +8,16 @@
 }
 
 html {
+  max-width: 100%;
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
 body {
   background: #04070d;
   color: #ffffff;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 @keyframes fade-up {
@@ -64,6 +68,15 @@ body {
 
 .animate-glow-pulse {
   animation: glow-pulse 4.8s ease-in-out infinite;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
