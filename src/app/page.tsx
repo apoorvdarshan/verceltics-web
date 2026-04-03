@@ -9,7 +9,7 @@ const heroShots = [
     alt: "Verceltics project browser screenshot",
     width: 360,
     height: 780,
-    wrapperClass: "left-0 top-24 z-10 w-40 sm:w-44 lg:w-48",
+    wrapperClass: "left-0 top-24 z-10 w-32 lg:w-36 xl:w-40 2xl:w-48",
     cardClass: "[transform:rotateY(26deg)_rotateX(10deg)_rotateZ(-14deg)]",
     delay: "0.6s",
     duration: "7.4s",
@@ -19,7 +19,7 @@ const heroShots = [
     alt: "Verceltics analytics overview screenshot",
     width: 420,
     height: 910,
-    wrapperClass: "left-[16%] top-8 z-30 w-48 sm:w-56 lg:w-64",
+    wrapperClass: "left-[16%] top-8 z-30 w-40 lg:w-44 xl:w-52 2xl:w-64",
     cardClass: "[transform:rotateY(-10deg)_rotateX(9deg)_rotateZ(-4deg)]",
     delay: "0.9s",
     duration: "8.4s",
@@ -29,7 +29,7 @@ const heroShots = [
     alt: "Verceltics breakdown analytics screenshot",
     width: 360,
     height: 780,
-    wrapperClass: "right-[12%] top-0 z-20 w-40 sm:w-[11.5rem] lg:w-52",
+    wrapperClass: "right-[12%] top-0 z-20 w-32 lg:w-36 xl:w-44 2xl:w-52",
     cardClass: "[transform:rotateY(-24deg)_rotateX(10deg)_rotateZ(12deg)]",
     delay: "1.2s",
     duration: "7.8s",
@@ -39,7 +39,7 @@ const heroShots = [
     alt: "Verceltics referrer analytics screenshot",
     width: 390,
     height: 845,
-    wrapperClass: "left-[8%] bottom-4 z-20 w-44 sm:w-[12.5rem] lg:w-56",
+    wrapperClass: "left-[8%] bottom-4 z-20 w-34 lg:w-40 xl:w-48 2xl:w-56",
     cardClass: "[transform:rotateY(18deg)_rotateX(8deg)_rotateZ(7deg)]",
     delay: "1.5s",
     duration: "8.1s",
@@ -49,7 +49,7 @@ const heroShots = [
     alt: "Verceltics device analytics screenshot",
     width: 360,
     height: 780,
-    wrapperClass: "right-0 bottom-16 z-10 w-40 sm:w-44 lg:w-48",
+    wrapperClass: "right-0 bottom-16 z-10 w-32 lg:w-36 xl:w-40 2xl:w-48",
     cardClass: "[transform:rotateY(-28deg)_rotateX(9deg)_rotateZ(14deg)]",
     delay: "1.8s",
     duration: "7.2s",
@@ -266,11 +266,11 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative mx-auto hidden w-full max-w-[680px] lg:block [perspective:2400px]">
-                <div className="absolute inset-x-20 top-24 h-56 rounded-full bg-sky-500/[0.15] blur-3xl" />
-                <div className="absolute inset-x-10 bottom-10 h-48 rounded-full bg-blue-950/80 blur-3xl" />
+              <div className="relative mx-auto hidden w-full max-w-[520px] xl:max-w-[600px] 2xl:max-w-[680px] lg:block [perspective:2400px]">
+                <div className="absolute inset-x-20 top-24 h-40 rounded-full bg-sky-500/[0.15] blur-3xl" />
+                <div className="absolute inset-x-10 bottom-10 h-36 rounded-full bg-blue-950/80 blur-3xl" />
 
-                <div className="relative h-[640px] [transform-style:preserve-3d]">
+                <div className="relative h-[480px] xl:h-[540px] 2xl:h-[640px] [transform-style:preserve-3d]">
                   {heroShots.map((shot) => (
                     <div
                       key={shot.src}
@@ -308,7 +308,7 @@ export default function Home() {
                 </h2>
               </div>
 
-              <ScrollReveal className="w-full lg:max-w-[32rem]">
+              <ScrollReveal className="w-full lg:max-w-[24rem] xl:max-w-[28rem] 2xl:max-w-[32rem]">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                   {stats.map((stat) => (
                     <div key={stat.label} className="rounded-[1.5rem] border border-white/10 bg-black/30 px-5 py-6">
