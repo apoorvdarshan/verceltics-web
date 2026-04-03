@@ -306,8 +306,8 @@ export default function Home() {
                 return (
                   <ScrollReveal key={feature.title} delay={index * 120}>
                     <article className="grid gap-10 lg:grid-cols-2 lg:items-center">
-                      <div className={`order-1 min-w-0 max-w-md mx-auto lg:mx-0 ${screenshotOrder}`}>
-                        <div className="relative overflow-hidden rounded-[2.25rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.03))] p-3 shadow-[0_30px_80px_rgba(3,8,20,0.40)] sm:p-4">
+                      <div className={`order-1 min-w-0 max-w-xs mx-auto lg:mx-0 ${screenshotOrder}`}>
+                        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.03))] p-2 shadow-[0_20px_60px_rgba(3,8,20,0.40)]">
                           <div className="absolute inset-x-10 top-6 h-px bg-gradient-to-r from-transparent via-white/[0.55] to-transparent" />
                           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(91,154,255,0.18),transparent_38%)]" />
                           <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/40 p-2">
@@ -318,9 +318,9 @@ export default function Home() {
                             <Image
                               src={feature.image}
                               alt={feature.alt}
-                              width={960}
+                              width={400}
                               height={720}
-                              className="h-auto w-full rounded-[1.45rem]"
+                              className="h-auto w-full max-h-[60vh] object-cover object-top rounded-xl"
                             />
                           </div>
                         </div>
@@ -328,7 +328,7 @@ export default function Home() {
 
                       <div className={`order-2 min-w-0 ${copyOrder}`}>
                         <p className="text-xs uppercase tracking-[0.32em] text-sky-200/70">{feature.eyebrow}</p>
-                        <h3 className="mt-5 max-w-xl font-serif text-4xl italic leading-tight tracking-[-0.05em] text-white sm:text-5xl">
+                        <h3 className="mt-5 max-w-xl font-serif text-2xl italic leading-tight tracking-[-0.03em] text-white sm:text-3xl lg:text-4xl">
                           {feature.title}
                         </h3>
                         <p className="mt-6 max-w-xl text-base leading-8 text-white/[0.65] sm:text-lg">
