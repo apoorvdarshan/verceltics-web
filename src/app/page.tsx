@@ -6,53 +6,21 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 const heroShots = [
   {
     src: "/projects.png",
-    alt: "Verceltics project browser screenshot",
-    width: 360,
-    height: 780,
-    wrapperClass: "left-0 top-24 z-10 w-32 lg:w-36 xl:w-40 2xl:w-48",
-    cardClass: "[transform:rotateY(26deg)_rotateX(10deg)_rotateZ(-14deg)]",
+    alt: "Verceltics project browser",
+    className: "absolute left-0 top-8 z-10 w-[38%] -rotate-6 opacity-80",
     delay: "0.6s",
-    duration: "7.4s",
   },
   {
     src: "/analytics.png",
-    alt: "Verceltics analytics overview screenshot",
-    width: 420,
-    height: 910,
-    wrapperClass: "left-[16%] top-8 z-30 w-40 lg:w-44 xl:w-52 2xl:w-64",
-    cardClass: "[transform:rotateY(-10deg)_rotateX(9deg)_rotateZ(-4deg)]",
-    delay: "0.9s",
-    duration: "8.4s",
-  },
-  {
-    src: "/breakdowns.png",
-    alt: "Verceltics breakdown analytics screenshot",
-    width: 360,
-    height: 780,
-    wrapperClass: "right-[12%] top-0 z-20 w-32 lg:w-36 xl:w-44 2xl:w-52",
-    cardClass: "[transform:rotateY(-24deg)_rotateX(10deg)_rotateZ(12deg)]",
-    delay: "1.2s",
-    duration: "7.8s",
+    alt: "Verceltics analytics dashboard",
+    className: "relative z-30 w-[48%] mx-auto",
+    delay: "0.3s",
   },
   {
     src: "/referrers.png",
-    alt: "Verceltics referrer analytics screenshot",
-    width: 390,
-    height: 845,
-    wrapperClass: "left-[8%] bottom-4 z-20 w-34 lg:w-40 xl:w-48 2xl:w-56",
-    cardClass: "[transform:rotateY(18deg)_rotateX(8deg)_rotateZ(7deg)]",
-    delay: "1.5s",
-    duration: "8.1s",
-  },
-  {
-    src: "/devices.png",
-    alt: "Verceltics device analytics screenshot",
-    width: 360,
-    height: 780,
-    wrapperClass: "right-0 bottom-16 z-10 w-32 lg:w-36 xl:w-40 2xl:w-48",
-    cardClass: "[transform:rotateY(-28deg)_rotateX(9deg)_rotateZ(14deg)]",
-    delay: "1.8s",
-    duration: "7.2s",
+    alt: "Verceltics referrers",
+    className: "absolute right-0 top-8 z-10 w-[38%] rotate-6 opacity-80",
+    delay: "0.9s",
   },
 ] as const;
 
@@ -247,17 +215,16 @@ export default function Home() {
 
             <div className="animate-fade-up w-full" style={{ animationDelay: "0.45s" }}>
               <div className="-mx-6 lg:hidden">
-                <div className="scrollbar-hidden flex gap-4 overflow-x-auto px-6 pb-4 pt-2">
+                <div className="flex justify-center gap-3 px-6 pb-4 pt-2">
                   {heroShots.map((shot) => (
-                    <div key={shot.src} className="w-[220px] flex-none sm:w-[250px]">
-                      <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 shadow-[0_30px_70px_rgba(4,10,24,0.35)] backdrop-blur-xl">
-                        <div className="absolute inset-x-8 top-4 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+                    <div key={shot.src} className="w-28 sm:w-36 flex-none">
+                      <div className="overflow-hidden rounded-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
                         <Image
                           src={shot.src}
                           alt={shot.alt}
-                          width={shot.width}
-                          height={shot.height}
-                          className="h-auto w-full rounded-[1.6rem]"
+                          width={200}
+                          height={433}
+                          className="h-auto w-full"
                           priority={shot.src === "/analytics.png"}
                         />
                       </div>
@@ -266,27 +233,23 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative mx-auto hidden w-full max-w-[520px] xl:max-w-[600px] 2xl:max-w-[680px] lg:block [perspective:2400px]">
-                <div className="absolute inset-x-20 top-24 h-40 rounded-full bg-sky-500/[0.15] blur-3xl" />
-                <div className="absolute inset-x-10 bottom-10 h-36 rounded-full bg-blue-950/80 blur-3xl" />
+              <div className="relative mx-auto hidden w-full max-w-[480px] lg:block">
+                <div className="absolute inset-x-20 top-20 h-40 rounded-full bg-sky-500/[0.12] blur-3xl" />
 
-                <div className="relative h-[480px] xl:h-[540px] 2xl:h-[640px] [transform-style:preserve-3d]">
+                <div className="relative flex items-center justify-center h-[420px] xl:h-[480px]">
                   {heroShots.map((shot) => (
                     <div
                       key={shot.src}
-                      className={`animate-float absolute ${shot.wrapperClass}`}
-                      style={{ animationDelay: shot.delay, animationDuration: shot.duration }}
+                      className={`animate-fade-up ${shot.className}`}
+                      style={{ animationDelay: shot.delay }}
                     >
-                      <div
-                        className={`relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 shadow-[0_35px_80px_rgba(4,10,24,0.45)] backdrop-blur-xl ${shot.cardClass}`}
-                      >
-                        <div className="absolute inset-x-8 top-4 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+                      <div className="overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
                         <Image
                           src={shot.src}
                           alt={shot.alt}
-                          width={shot.width}
-                          height={shot.height}
-                          className="h-auto w-full rounded-[1.6rem]"
+                          width={300}
+                          height={650}
+                          className="h-auto w-full"
                           priority={shot.src === "/analytics.png"}
                         />
                       </div>
@@ -342,8 +305,8 @@ export default function Home() {
 
                 return (
                   <ScrollReveal key={feature.title} delay={index * 120}>
-                    <article className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
-                      <div className={`order-1 min-w-0 ${screenshotOrder}`}>
+                    <article className="grid gap-10 lg:grid-cols-2 lg:items-center">
+                      <div className={`order-1 min-w-0 max-w-md mx-auto lg:mx-0 ${screenshotOrder}`}>
                         <div className="relative overflow-hidden rounded-[2.25rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.03))] p-3 shadow-[0_30px_80px_rgba(3,8,20,0.40)] sm:p-4">
                           <div className="absolute inset-x-10 top-6 h-px bg-gradient-to-r from-transparent via-white/[0.55] to-transparent" />
                           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(91,154,255,0.18),transparent_38%)]" />
