@@ -132,7 +132,7 @@ export default function Home() {
       <main>
         {/* ══ HERO ══ */}
         <section className="relative flex min-h-svh items-center overflow-hidden">
-          <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-6 pb-12 pt-24 sm:px-8 lg:grid-cols-[1fr_0.9fr] lg:pb-0 lg:pt-16">
+          <div className="mx-auto grid w-full max-w-6xl items-center gap-8 px-5 pb-6 pt-20 sm:gap-12 sm:px-8 sm:pt-24 lg:grid-cols-[1fr_0.9fr] lg:gap-12 lg:pb-0 lg:pt-16">
             {/* Copy */}
             <div className="max-w-xl text-center lg:text-left">
               <p
@@ -161,12 +161,12 @@ export default function Home() {
               </p>
 
               <div
-                className="animate-fade-up mt-9 flex flex-col items-center gap-3 sm:flex-row lg:justify-start"
+                className="animate-fade-up mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center lg:justify-start"
                 style={{ animationDelay: "0.4s" }}
               >
                 <a
                   href="#pricing"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[15px] font-semibold text-[#050a12] transition-colors hover:bg-white/85"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-[#050a12] transition-colors hover:bg-white/85 sm:text-[15px]"
                 >
                   <AppleIcon />
                   Download on App Store
@@ -175,9 +175,9 @@ export default function Home() {
                   href="https://www.producthunt.com/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-3 rounded-full border border-[#FF6154]/20 bg-[#FF6154]/[0.06] px-5 py-3 transition-colors hover:bg-[#FF6154]/[0.12]"
+                  className="inline-flex items-center justify-center gap-2.5 rounded-full border border-[#FF6154]/20 bg-[#FF6154]/[0.06] px-5 py-2.5 transition-colors hover:bg-[#FF6154]/[0.12]"
                 >
-                  <svg width="28" height="28" viewBox="0 0 40 40" fill="none" aria-hidden>
+                  <svg width="24" height="24" viewBox="0 0 40 40" fill="none" aria-hidden className="flex-none">
                     <circle cx="20" cy="20" r="20" fill="#FF6154" />
                     <path d="M22.667 20h-6v-6.667h6a3.333 3.333 0 1 1 0 6.667Z" fill="#fff" />
                     <path d="M16.667 26.667V20h6a6.667 6.667 0 0 0 0-13.333h-9.334V26.667h3.334Z" fill="#fff" />
@@ -185,12 +185,12 @@ export default function Home() {
                   <div className="flex flex-col">
                     <div className="flex items-center gap-0.5">
                       {[1, 2, 3, 4, 5].map((s) => (
-                        <svg key={s} width="11" height="11" viewBox="0 0 24 24" fill="#FF6154" aria-hidden>
+                        <svg key={s} width="10" height="10" viewBox="0 0 24 24" fill="#FF6154" aria-hidden>
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                         </svg>
                       ))}
                     </div>
-                    <span className="text-[13px] font-medium text-[#FF6154]/80">Vote on Product Hunt</span>
+                    <span className="text-[12px] font-medium text-[#FF6154]/80">Vote on Product Hunt</span>
                   </div>
                 </a>
               </div>
@@ -199,10 +199,10 @@ export default function Home() {
             {/* Phones */}
             <div className="animate-fade-up w-full" style={{ animationDelay: "0.35s" }}>
               {/* Mobile */}
-              <div className="-mx-4 lg:hidden">
-                <div className="flex justify-center gap-2.5 px-4">
+              <div className="lg:hidden">
+                <div className="relative mx-auto flex max-w-[360px] items-center justify-center">
                   {heroShots.map((s) => (
-                    <div key={s.src} className="w-[30%] max-w-[140px] flex-none">
+                    <div key={s.src} className={`animate-fade-up ${s.className.replace('z-30', 'z-30').replace('w-[48%]', 'w-[50%]').replace('w-[38%]', 'w-[40%]')}`} style={{ animationDelay: s.delay }}>
                       <div className="overflow-hidden rounded-xl border border-white/[0.06] shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
                         <Image src={s.src} alt={s.alt} width={200} height={433} className="h-auto w-full" priority={s.src === "/analytics.png"} />
                       </div>
@@ -240,30 +240,30 @@ export default function Home() {
         </div>
 
         {/* ══ FEATURES ══ */}
-        <section id="features" className="scroll-mt-24 px-6 py-28 sm:px-8">
+        <section id="features" className="scroll-mt-24 px-5 py-20 sm:px-8 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <ScrollReveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-white/30">Features</p>
-              <h2 className="mt-4 max-w-lg font-serif text-[clamp(2rem,4.5vw,3.8rem)] italic leading-[0.95] tracking-[-0.03em]">
+              <p className="text-center text-[11px] font-medium uppercase tracking-[0.35em] text-white/30 lg:text-left">Features</p>
+              <h2 className="mt-4 text-center font-serif text-[clamp(1.8rem,4.5vw,3.8rem)] italic leading-[0.95] tracking-[-0.03em] lg:max-w-lg lg:text-left">
                 Everything you need. Nothing you don&apos;t.
               </h2>
             </ScrollReveal>
 
-            <div className="mt-20 space-y-28">
+            <div className="mt-14 space-y-20 sm:mt-20 sm:space-y-28">
               {features.map((f, i) => {
                 const flip = i % 2 !== 0;
                 return (
                   <ScrollReveal key={f.title} delay={80}>
-                    <div className={`grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20 ${flip ? "[direction:rtl]" : ""}`}>
+                    <div className={`grid items-center gap-8 sm:gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20 ${flip ? "[direction:rtl]" : ""}`}>
                       {/* Screenshot */}
-                      <div className="mx-auto w-full max-w-[280px] [direction:ltr]">
-                        <div className="overflow-hidden rounded-[1.5rem] border border-white/[0.05] shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
+                      <div className="mx-auto w-full max-w-[220px] sm:max-w-[280px] [direction:ltr]">
+                        <div className="overflow-hidden rounded-2xl border border-white/[0.05] shadow-[0_20px_60px_rgba(0,0,0,0.4)] sm:rounded-[1.5rem]">
                           <Image src={f.image} alt={f.alt} width={460} height={996} className="h-auto w-full" />
                         </div>
                       </div>
 
                       {/* Copy */}
-                      <div className="[direction:ltr]">
+                      <div className="text-center [direction:ltr] lg:text-left">
                         <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-white/30">{f.label}</p>
                         <h3 className="mt-4 font-serif text-3xl italic leading-[1] tracking-[-0.02em] sm:text-4xl">
                           {f.title}
@@ -289,7 +289,7 @@ export default function Home() {
         <div className="divider mx-auto max-w-4xl" />
 
         {/* ══ HOW IT WORKS ══ */}
-        <section id="how-it-works" className="scroll-mt-24 px-6 py-28 sm:px-8">
+        <section id="how-it-works" className="scroll-mt-24 px-5 py-20 sm:px-8 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <ScrollReveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-white/30">Setup</p>
@@ -319,7 +319,7 @@ export default function Home() {
         <div className="divider mx-auto max-w-4xl" />
 
         {/* ══ PRICING ══ */}
-        <section id="pricing" className="scroll-mt-24 px-6 py-24 sm:px-8">
+        <section id="pricing" className="scroll-mt-24 px-5 py-20 sm:px-8 sm:py-24">
           <div className="mx-auto max-w-6xl">
             <ScrollReveal>
               <div className="text-center">
@@ -386,7 +386,7 @@ export default function Home() {
         <div className="divider mx-auto max-w-4xl" />
 
         {/* ══ CTA ══ */}
-        <section className="px-6 py-28 sm:px-8">
+        <section className="px-5 py-20 sm:px-8 sm:py-28">
           <ScrollReveal>
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="font-serif text-[clamp(2.4rem,5vw,4.2rem)] italic leading-[0.92] tracking-[-0.03em]">
@@ -406,37 +406,36 @@ export default function Home() {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-white/[0.04] px-6 py-12 sm:px-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 text-center md:flex-row md:items-start md:justify-between md:text-left">
-          <div className="max-w-xs">
-            <div className="flex items-center justify-center gap-2 md:justify-start">
-              <Image src="/icon.png" alt="" width={24} height={24} className="rounded-md" />
-              <span className="text-[12px] font-semibold tracking-[0.2em]">VERCELTICS</span>
+      <footer className="border-t border-white/[0.04] px-5 py-10 sm:px-8 sm:py-12">
+        <div className="mx-auto max-w-6xl">
+          {/* Brand */}
+          <div className="flex flex-col items-center text-center md:flex-row md:items-start md:justify-between md:text-left">
+            <div className="max-w-xs">
+              <div className="flex items-center justify-center gap-2 md:justify-start">
+                <Image src="/icon.png" alt="" width={24} height={24} className="rounded-md" />
+                <span className="text-[12px] font-semibold tracking-[0.2em]">VERCELTICS</span>
+              </div>
+              <p className="mt-3 text-[12px] leading-5 text-white/25">
+                An open source companion app for Vercel Web Analytics.
+              </p>
             </div>
-            <p className="mt-3 text-[12px] leading-5 text-white/25">
-              An open source companion app for Vercel Web Analytics.
-            </p>
-            <p className="mt-3 text-[11px] text-white/15">
-              Not affiliated with Vercel Inc. &copy; 2026 Apoorv Darshan.
-            </p>
-          </div>
 
-          <div className="flex gap-12 text-[12px] text-white/30">
-            <div className="flex flex-col gap-2">
+            {/* Links — wrapping row on mobile, 3-col on desktop */}
+            <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-2 text-[12px] text-white/30 md:mt-0 md:gap-x-12">
               <a href="#features" className="transition-colors hover:text-white/70">Features</a>
               <a href="#how-it-works" className="transition-colors hover:text-white/70">How it works</a>
               <a href="#pricing" className="transition-colors hover:text-white/70">Pricing</a>
-            </div>
-            <div className="flex flex-col gap-2">
               <Link href="/privacy" className="transition-colors hover:text-white/70">Privacy</Link>
               <Link href="/terms" className="transition-colors hover:text-white/70">Terms</Link>
-            </div>
-            <div className="flex flex-col gap-2">
               <a href="https://github.com/apoorvdarshan/verceltics" target="_blank" rel="noreferrer" className="transition-colors hover:text-white/70">GitHub</a>
               <a href="https://x.com/apoorvdarshan" target="_blank" rel="noreferrer" className="transition-colors hover:text-white/70">X</a>
               <a href="mailto:ad13dtu@gmail.com" className="transition-colors hover:text-white/70">Contact</a>
             </div>
           </div>
+
+          <p className="mt-8 text-center text-[11px] text-white/15 md:text-left">
+            Not affiliated with Vercel Inc. &copy; 2026 Apoorv Darshan.
+          </p>
         </div>
       </footer>
     </div>
