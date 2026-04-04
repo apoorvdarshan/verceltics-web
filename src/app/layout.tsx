@@ -19,7 +19,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL("https://verceltics.site"),
   title: {
-    default: "Verceltics — Vercel Analytics on Your iPhone",
+    default: "Verceltics — Vercel Web Analytics on Your iPhone, Open Source",
     template: "%s — Verceltics",
   },
   description:
@@ -51,11 +51,11 @@ export const metadata: Metadata = {
     url: "https://verceltics.site",
     images: [
       {
-        url: "/og.png",
+        url: "/og.jpg",
         width: 1200,
         height: 630,
         alt: "Verceltics — Vercel Analytics on Your iPhone",
-        type: "image/png",
+        type: "image/jpeg",
       },
     ],
   },
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     creator: "@apoorvdarshan",
     images: [
       {
-        url: "/og.png",
+        url: "/og.jpg",
         width: 1200,
         height: 630,
         alt: "Verceltics — Vercel Analytics on Your iPhone",

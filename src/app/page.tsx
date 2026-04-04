@@ -99,7 +99,7 @@ const jsonLd = {
   description:
     "Vercel web analytics viewer for iPhone. Track visitors, page views, bounce rate, referrers, countries, devices, browsers, and operating systems. Built with SwiftUI and Swift Charts. Open source, private by default, no tracking, no servers.",
   url: "https://verceltics.site",
-  image: "https://verceltics.site/og.png",
+  image: "https://verceltics.site/og.jpg",
   screenshot: [
     "https://verceltics.site/analytics.png",
     "https://verceltics.site/referrers.png",
