@@ -2,7 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Verceltics",
+  title: "Terms of Service",
+  description:
+    "Verceltics terms of service. Subscription plans: $3.99/month and $29.99/year with a 3-day free trial. Manage subscriptions through Apple ID settings.",
+  alternates: { canonical: "https://verceltics.site/terms" },
 };
 
 export default function Terms() {

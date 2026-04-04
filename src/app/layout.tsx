@@ -17,16 +17,68 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://verceltics.site"),
-  title: "Verceltics — Vercel Analytics on Your iPhone",
+  title: {
+    default: "Verceltics — Vercel Analytics on Your iPhone",
+    template: "%s — Verceltics",
+  },
   description:
-    "Track your Vercel web analytics on the go. Visitors, page views, bounce rate, referrers, countries, devices — all from your iPhone.",
+    "Track your Vercel web analytics on the go. Visitors, page views, bounce rate, referrers, countries, devices — all from your iPhone. Open source and private by default.",
+  keywords: [
+    "Vercel",
+    "analytics",
+    "iOS",
+    "iPhone",
+    "web analytics",
+    "mobile analytics",
+    "SwiftUI",
+    "open source",
+    "Vercel dashboard",
+    "page views",
+    "referrers",
+    "bounce rate",
+  ],
+  authors: [{ name: "Apoorv Darshan", url: "https://x.com/apoorvdarshan" }],
+  creator: "Apoorv Darshan",
+  publisher: "Apoorv Darshan",
   openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Verceltics",
     title: "Verceltics — Vercel Analytics on Your iPhone",
-    description: "Track your Vercel web analytics on the go.",
+    description:
+      "Track visitors, page views, referrers, countries, and devices from your iPhone. Open source. Private by default.",
     url: "https://verceltics.site",
+    images: [
+      {
+        url: "/analytics.png",
+        width: 460,
+        height: 996,
+        alt: "Verceltics analytics dashboard screenshot",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Verceltics — Vercel Analytics on Your iPhone",
+    description:
+      "Track visitors, page views, referrers, and devices from your iPhone. Open source.",
+    creator: "@apoorvdarshan",
     images: ["/analytics.png"],
   },
-  twitter: { card: "summary_large_image" },
+  alternates: {
+    canonical: "https://verceltics.site",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({

@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 import { ScrollReveal } from "@/components/scroll-reveal";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://verceltics.site" },
+};
 
 const heroShots = [
   {
@@ -85,9 +90,77 @@ const pricingFeatures = [
   "Open source",
 ] as const;
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Verceltics",
+  operatingSystem: "iOS",
+  applicationCategory: "DeveloperApplication",
+  description:
+    "Vercel web analytics viewer for iPhone. Track visitors, page views, bounce rate, referrers, countries, devices, browsers, and operating systems. Built with SwiftUI and Swift Charts. Open source, private by default, no tracking, no servers.",
+  url: "https://verceltics.site",
+  image: "https://verceltics.site/analytics.png",
+  screenshot: [
+    "https://verceltics.site/analytics.png",
+    "https://verceltics.site/referrers.png",
+    "https://verceltics.site/projects.png",
+    "https://verceltics.site/devices.png",
+    "https://verceltics.site/breakdowns.png",
+  ],
+  author: {
+    "@type": "Person",
+    name: "Apoorv Darshan",
+    url: "https://x.com/apoorvdarshan",
+  },
+  offers: [
+    {
+      "@type": "Offer",
+      price: "3.99",
+      priceCurrency: "USD",
+      description: "Monthly subscription with 3-day free trial",
+    },
+    {
+      "@type": "Offer",
+      price: "29.99",
+      priceCurrency: "USD",
+      description: "Yearly subscription with 3-day free trial",
+    },
+  ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    ratingCount: "1",
+  },
+};
+
 export default function Home() {
   return (
     <div className="grain relative bg-[#050a12] text-[#e8e8ed]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hidden SEO content — semantic keywords for crawlers */}
+      <div className="sr-only" aria-hidden="true">
+        <h2>Verceltics — Vercel Analytics iOS App</h2>
+        <p>
+          Verceltics is a native iOS app for viewing Vercel web analytics on your iPhone.
+          Monitor your Vercel dashboard, check website traffic, track visitors, page views,
+          unique visitors, bounce rate, session duration, referral sources, UTM campaigns,
+          country traffic, device types, browser stats, operating system breakdown, top pages,
+          route analytics, hostname analytics, event tracking, and query parameters.
+          Built with SwiftUI, Swift Charts, async/await, and StoreKit 2.
+          Token stored in iOS Keychain. No data collection. No telemetry. No servers.
+          Open source on GitHub. Works with Vercel Hobby and Pro plans.
+          Alternative to Vercel dashboard for mobile. Best Vercel analytics app for iPhone.
+          Vercel mobile app. Vercel stats on phone. Web analytics iOS. Developer tools iOS.
+          Indie developer tools. Vercel project monitoring. Website traffic monitor iPhone.
+          Real-time analytics mobile. Privacy-first analytics viewer. Subscription: $3.99/month
+          or $29.99/year with 3-day free trial. Compatible with iOS 18 and later.
+        </p>
+      </div>
+
       {/* ── Ambient ── */}
       <div aria-hidden className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute -top-[30vh] left-1/2 h-[80vh] w-[120vw] -translate-x-1/2 bg-[radial-gradient(ellipse,rgba(80,140,255,0.09),transparent_60%)]" />
