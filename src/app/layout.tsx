@@ -50,10 +50,11 @@ export const metadata: Metadata = {
     url: "https://verceltics.site",
     images: [
       {
-        url: "/analytics.png",
-        width: 460,
-        height: 996,
-        alt: "Verceltics analytics dashboard screenshot",
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Verceltics — Vercel Analytics on Your iPhone",
+        type: "image/png",
       },
     ],
   },
@@ -63,7 +64,14 @@ export const metadata: Metadata = {
     description:
       "Track visitors, page views, referrers, and devices from your iPhone. Open source.",
     creator: "@apoorvdarshan",
-    images: ["/analytics.png"],
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Verceltics — Vercel Analytics on Your iPhone",
+      },
+    ],
   },
   alternates: {
     canonical: "https://verceltics.site",
