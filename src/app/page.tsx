@@ -197,7 +197,7 @@ export default function Home() {
             href="#pricing"
             className="rounded-full bg-white px-4 py-1.5 text-[13px] font-semibold text-[#050a12] transition-colors hover:bg-white/85"
           >
-            Get the app
+            Coming Soon
           </a>
         </div>
       </nav>
@@ -242,7 +242,7 @@ export default function Home() {
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-[#050a12] transition-colors hover:bg-white/85 sm:text-[15px]"
                 >
                   <AppleIcon />
-                  Download on App Store
+                  Coming Soon on App Store
                 </a>
                 <a
                   href="https://www.producthunt.com/"
@@ -471,7 +471,7 @@ export default function Home() {
                 className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[15px] font-semibold text-[#050a12] transition-colors hover:bg-white/85"
               >
                 <AppleIcon />
-                Download on App Store
+                Coming Soon on App Store
               </a>
             </div>
           </ScrollReveal>
