@@ -245,7 +245,7 @@ export default function Home() {
                   Coming Soon on App Store
                 </a>
                 <a
-                  href="https://www.producthunt.com/"
+                  href="https://www.producthunt.com/products/verceltics"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2.5 rounded-full border border-[#FF6154]/20 bg-[#FF6154]/[0.06] px-5 py-2.5 transition-colors hover:bg-[#FF6154]/[0.12]"
