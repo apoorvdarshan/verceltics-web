@@ -4,7 +4,7 @@
 2. Make your changes
 3. Open a PR
 
-Keep it simple — static HTML/CSS/JS only. No frameworks, no build tools.
+Built with Next.js and Tailwind CSS. Run `npm run dev` to start locally.
 
 ## Contact
 

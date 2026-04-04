@@ -14,48 +14,41 @@ export function ScrollReveal({ children, className = "", delay = 0 }: ScrollReve
 
   useEffect(() => {
     const node = ref.current;
-
-    if (!node) {
-      return;
-    }
+    if (!node) return;
 
     if (typeof window === "undefined") {
       setIsVisible(true);
       return;
     }
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReducedMotion || typeof IntersectionObserver === "undefined") {
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      typeof IntersectionObserver === "undefined"
+    ) {
       setIsVisible(true);
       return;
     }
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-
+      ([entry]) => {
         if (entry?.isIntersecting) {
           setIsVisible(true);
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.08 },
     );
 
     observer.observe(node);
-
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
     <div
       ref={ref}
       className={[
-        "transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform",
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
+        "transition-all duration-[1.1s] ease-[cubic-bezier(0.22,1,0.36,1)]",
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
         className,
       ]
         .filter(Boolean)
