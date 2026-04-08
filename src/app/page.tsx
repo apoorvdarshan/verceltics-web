@@ -194,10 +194,12 @@ export default function Home() {
           </div>
 
           <a
-            href="#pricing"
+            href="https://apps.apple.com/us/app/verceltics/id6761645656"
+            target="_blank"
+            rel="noreferrer"
             className="rounded-full bg-white px-4 py-1.5 text-[13px] font-semibold text-[#050a12] transition-colors hover:bg-white/85"
           >
-            Coming Soon
+            App Store
           </a>
         </div>
       </nav>
@@ -238,11 +240,13 @@ export default function Home() {
                 style={{ animationDelay: "0.4s" }}
               >
                 <a
-                  href="#pricing"
+                  href="https://apps.apple.com/us/app/verceltics/id6761645656"
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-[#050a12] transition-colors hover:bg-white/85 sm:text-[15px]"
                 >
                   <AppleIcon />
-                  Coming Soon on App Store
+                  Download on App Store
                 </a>
                 <a
                   href="https://www.producthunt.com/products/verceltics"
@@ -467,11 +471,13 @@ export default function Home() {
               </h2>
               <p className="mt-5 text-[15px] text-white/35">Your Vercel analytics, always in your pocket.</p>
               <a
-                href="#pricing"
+                href="https://apps.apple.com/us/app/verceltics/id6761645656"
+                target="_blank"
+                rel="noreferrer"
                 className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[15px] font-semibold text-[#050a12] transition-colors hover:bg-white/85"
               >
                 <AppleIcon />
-                Coming Soon on App Store
+                Download on App Store
               </a>
             </div>
           </ScrollReveal>
