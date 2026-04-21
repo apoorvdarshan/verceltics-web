@@ -1,18 +1,18 @@
-# Verceltics Web
+# ⚠️ Moved
 
-Landing page, privacy policy, and terms of service for [Verceltics](https://verceltics.site) — an open source iOS app for viewing Vercel Web Analytics.
+This repository has been **merged into the main [Verceltics monorepo](https://github.com/apoorvdarshan/verceltics)**.
 
-[App Store](https://apps.apple.com/us/app/verceltics/id6761645656) · [Website](https://verceltics.site) · [GitHub](https://github.com/apoorvdarshan/verceltics)
+All future development and updates for the landing page happen inside that repo, under the `web/` directory.
 
-## Pages
+## New location
 
-- `/` — Landing page
-- `/privacy` — Privacy policy
-- `/terms` — Terms of service
+👉 **[github.com/apoorvdarshan/verceltics/tree/main/web](https://github.com/apoorvdarshan/verceltics/tree/main/web)**
 
-## Stack
+## Links
 
-Next.js, Tailwind CSS, deployed on Vercel.
+- **App Store**: [apps.apple.com/app/verceltics](https://apps.apple.com/us/app/verceltics/id6761645656)
+- **Website**: [verceltics.site](https://verceltics.site)
+- **Main repo**: [github.com/apoorvdarshan/verceltics](https://github.com/apoorvdarshan/verceltics)
 
 ## License
 
